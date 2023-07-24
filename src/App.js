@@ -1,39 +1,53 @@
-import {ThemeProvider, createTheme} from "@mui/material/styles";
-import rtlPlugin from "stylis-plugin-rtl";
-import {CacheProvider} from "@emotion/react";
-import {HelmetProvider, Helmet} from "react-helmet-async";
-import createCache from "@emotion/cache";
-import {prefixer} from "stylis";
-import {} from "@mui/material";
-import "./App.css";
+import {useState} from "react";
+import MainLayout from "./components/layouts/MainLayout";
+import Sidebar from "./components/Sidebar";
+import ContentContainer from "./components/ContentContainer";
+import TabPanel from "./components/tabs/TabPanel";
+import {Typography} from "@mui/material";
 
-// Create Theme
-const theme = createTheme({
-    direction: "rtl",
-    typography: {
-      fontFamily: "vazir, roboto"
-    }
-});
-// Create Rtl Cache
-const cacheRTL = createCache({
-    key: "muirtl",
-    stylisPlugins: [prefixer, rtlPlugin]
-})
 
 function App() {
-    return (
-        <CacheProvider value={cacheRTL}>
-            <ThemeProvider theme={theme}>
-                <HelmetProvider>
-                    <Helmet>
-                        <title>وب سایت شخصی پوریا جمشیدپور</title>
-                    </Helmet>
-                    <div className="App">
+    const [value, setValue] = useState(0);
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
-                    </div>
-                </HelmetProvider>
-            </ThemeProvider>
-        </CacheProvider>
+    return (
+        <MainLayout>
+            <Sidebar value={value} handleChange={handleChange} />
+            <ContentContainer>
+                <TabPanel value={value} index={0}>
+                    <Typography variant="h5" sx={{textAlign: "center"}}>
+                        صفحه اصلی
+                    </Typography>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <Typography variant="h5" sx={{textAlign: "center"}}>
+                        درباره من
+                    </Typography>
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <Typography variant="h5" sx={{textAlign: "center"}}>
+                        رزومه من
+                    </Typography>
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <Typography variant="h5" sx={{textAlign: "center"}}>
+                        نمونه کار
+                    </Typography>
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <Typography variant="h5" sx={{textAlign: "center"}}>
+                        نظرات
+                    </Typography>
+                </TabPanel>
+                <TabPanel value={value} index={5}>
+                    <Typography variant="h5" sx={{textAlign: "center"}}>
+                        ارتباط با من
+                    </Typography>
+                </TabPanel>
+            </ContentContainer>
+        </MainLayout>
     );
 }
 
