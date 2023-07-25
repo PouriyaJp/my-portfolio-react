@@ -1,11 +1,13 @@
 import {useState} from "react";
 import MainLayout from "./layouts/MainLayout";
 import {Sidebar} from "./components/sidebar";
-import ContentContainer from "./containers/ContentContainer";
-import TabPanel from "./components/TabPanel";
-import {Typography} from "@mui/material";
+import PagesContainer from "./containers/PagesContainer";
+import Page from "./pages/components/Page";
+import {Box, Typography} from "@mui/material";
 import SidebarContainer from "./containers/SidebarContainer";
 import MainContext from "./context";
+import {DrawerActionButton} from "./components/drawer";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -26,38 +28,39 @@ function App() {
                 <SidebarContainer>
                     <Sidebar/>
                 </SidebarContainer>
-                <ContentContainer>
-                    <TabPanel value={pageNumber} index={0}>
-                        <Typography component="h5" sx={{textAlign: "center"}}>
-                            صفحه اصلی
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={pageNumber} index={1}>
-                        <Typography  component="h5" sx={{textAlign: "center"}}>
+                {/* DrawerActionButton */}
+                <DrawerActionButton/>
+                <PagesContainer>
+                    <Page value={pageNumber} index={0}>
+                        {/* Home */}
+                        <Home></Home>
+                    </Page>
+                    <Page value={pageNumber} index={1}>
+                        <Typography variant="h5" sx={{textAlign: "center"}}>
                             درباره من
                         </Typography>
-                    </TabPanel>
-                    <TabPanel value={pageNumber} index={2}>
-                        <Typography component="h5" sx={{textAlign: "center"}}>
+                    </Page>
+                    <Page value={pageNumber} index={2}>
+                        <Typography variant="h5" sx={{textAlign: "center"}}>
                             رزومه من
                         </Typography>
-                    </TabPanel>
-                    <TabPanel value={pageNumber} index={3}>
-                        <Typography component="h5" sx={{textAlign: "center"}}>
+                    </Page>
+                    <Page value={pageNumber} index={3}>
+                        <Typography variant="h5" sx={{textAlign: "center"}}>
                             نمونه کار
                         </Typography>
-                    </TabPanel>
-                    <TabPanel value={pageNumber} index={4}>
-                        <Typography component="h5" sx={{textAlign: "center"}}>
+                    </Page>
+                    <Page value={pageNumber} index={4}>
+                        <Typography variant="h5" sx={{textAlign: "center"}}>
                             نظرات
                         </Typography>
-                    </TabPanel>
-                    <TabPanel value={pageNumber} index={5}>
-                        <Typography component="h5" sx={{textAlign: "center"}}>
+                    </Page>
+                    <Page value={pageNumber} index={5}>
+                        <Typography variant="h5" sx={{textAlign: "center"}}>
                             ارتباط با من
                         </Typography>
-                    </TabPanel>
-                </ContentContainer>
+                    </Page>
+                </PagesContainer>
             </MainLayout>
         </MainContext.Provider>
     );
