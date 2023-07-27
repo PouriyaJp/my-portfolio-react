@@ -12,7 +12,8 @@ const SidebarContainer = ({children}) => {
                 backgroundColor: "rgb(7,7,7)",
                 height: "100vh",
                 overflowY: "auto",
-                overflowX: "hidden"
+                overflowX: "hidden",
+                zIndex: 10000
         }}
         >
             {children}

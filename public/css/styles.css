@@ -25,4 +25,10 @@
 body {
     margin: 0 !important;
     padding: 0 !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.MuiCard-root::-webkit-scrollbar {
+    display: none;
 }

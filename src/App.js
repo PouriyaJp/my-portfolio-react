@@ -3,11 +3,11 @@ import MainLayout from "./layouts/MainLayout";
 import {Sidebar} from "./components/sidebar";
 import PagesContainer from "./containers/PagesContainer";
 import Page from "./pages/components/Page";
-import {Box, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import SidebarContainer from "./containers/SidebarContainer";
 import MainContext from "./context";
 import {DrawerActionButton} from "./components/drawer";
-import Home from "./pages/Home";
+import {Home, About} from "./pages";
 
 
 function App() {
@@ -28,17 +28,13 @@ function App() {
                 <SidebarContainer>
                     <Sidebar/>
                 </SidebarContainer>
-                {/* DrawerActionButton */}
                 <DrawerActionButton/>
                 <PagesContainer>
                     <Page value={pageNumber} index={0}>
-                        {/* Home */}
                         <Home></Home>
                     </Page>
                     <Page value={pageNumber} index={1}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            درباره من
-                        </Typography>
+                        <About/>
                     </Page>
                     <Page value={pageNumber} index={2}>
                         <Typography variant="h5" sx={{textAlign: "center"}}>
