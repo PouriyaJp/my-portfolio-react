@@ -16,7 +16,7 @@ const SidebarContent = () => {
             {/* SidebarHeader */}
             <SidebarHeader/>
 
-            <Divider variant="middle" color={grey[900]} sx={{mt: 2}}/>
+            <Divider variant="middle" color={grey[900]}/>
 
             {/* SidebarTabs */}
             <SidebarTabs/>

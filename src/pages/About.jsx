@@ -7,6 +7,7 @@ import {CodeRounded, SelfImprovementRounded} from "@mui/icons-material";
 import DevInfo from "./components/DevInfo";
 import Skill from "./components/Skill";
 import {devSkills} from "../constants/skills";
+import {Helmet} from "react-helmet-async";
 
 const About = () => {
     const {
@@ -88,6 +89,9 @@ const About = () => {
             overflowY: "auto"
             // backgroundColor: "whitesmoke"
         }}>
+            <Helmet>
+                <title>درباره من</title>
+            </Helmet>
             <CardContent>
                 <Grid container sx={{mx: 3}}>
                     <Grid xs={12} sm={12} md={8} lg={8} xl={8}>

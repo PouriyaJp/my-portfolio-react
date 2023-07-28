@@ -27,7 +27,7 @@ export const devSkills = {
         id: 2,
         name: "Bootstrap",
         icon: BootstrapIcon,
-        color: deepPurple[800],
+        color: deepPurple[400],
     },
     jsSkill: {
         id: 3,
