@@ -9,7 +9,7 @@ import TextTransition, {presets} from "react-text-transition";
 import bg05 from "../assets/bg5.jpg";
 import {Helmet} from "react-helmet-async";
 
-const Home = () => {
+const Home = ({helmetTitle}) => {
     const [index, setIndex] = useState(0);
     const nameEl = useRef(null);
     const infoEl = useRef(null);
@@ -76,7 +76,7 @@ const Home = () => {
             zIndex:10000
         }}>
             <Helmet>
-                <title>صفحه اصلی</title>
+                <title>{helmetTitle}</title>
             </Helmet>
             <Typography ref={nameEl} variant="h3" color={lightGreen[700]} sx={{
                 position: "absolute",

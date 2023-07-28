@@ -1,15 +1,17 @@
 import {useState, useEffect} from "react";
-import {Box, Typography, Card, CardContent, Divider, Avatar, Chip} from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import {Typography, Card, CardContent, Divider, Avatar, Chip, Box, Tooltip} from "@mui/material";
+import Grid from '@mui/material/Grid';
 import {teal} from "@mui/material/colors";
 import avatar from "../assets/avatar.jpg";
 import {CodeRounded, SelfImprovementRounded} from "@mui/icons-material";
 import DevInfo from "./components/DevInfo";
 import Skill from "./components/Skill";
 import {devSkills} from "../constants/skills";
+import {devWorkInfo} from "../constants/details";
+import CountUp from "react-countup";
 import {Helmet} from "react-helmet-async";
 
-const About = () => {
+const About = ({helmetTitle}) => {
     const {
         htmlSkill,
         cssSkill,
@@ -87,10 +89,9 @@ const About = () => {
         <Card sx={{
             height: "100vh",
             overflowY: "auto"
-            // backgroundColor: "whitesmoke"
         }}>
             <Helmet>
-                <title>درباره من</title>
+                <title>{helmetTitle}</title>
             </Helmet>
             <CardContent>
                 <Grid container sx={{mx: 3}}>
@@ -101,15 +102,42 @@ const About = () => {
                             }
                         }}>
                             <Chip icon={<CodeRounded/>} label={
-                                <Typography variant="body1" color={teal[800]} sx={{textAlign: "center"}}>
+                                <Typography variant="body1" color={teal[600]} sx={{textAlign: "center"}}>
                                     برنامه نویس و توسعه دهنده فول استک
                                 </Typography>
                             } sx={{p: 3}}/>
                         </Divider>
-                        <DevInfo>نام و نام خانوادگی : پوریا جمشیدپور</DevInfo>
-                        <DevInfo>سن : ۲۹</DevInfo>
-                        <DevInfo>شهر : تهران</DevInfo>
-                        <DevInfo>آدرس ایمیل : pouriya2910@gmail.com</DevInfo>
+
+                        <Grid container>
+                            <Grid item xs={12} sm={8} md={9} lg={9} xl={9}>
+                                <DevInfo>نام و نام خانوادگی : پوریا جمشیدپور</DevInfo>
+                                <DevInfo>سن : ۲۹</DevInfo>
+                                <DevInfo>شهر : تهران</DevInfo>
+                                <DevInfo>آدرس ایمیل : pouriya2910@gmail.com</DevInfo>
+                            </Grid>
+                            <Grid item xs={0} sm={4} md={3} lg={3} xl={3} sx={{
+                                display: {
+                                    "xs": "none",
+                                    "sm": "block",
+                                    "md": "block",
+                                },
+                                mt: 3
+                            }}>
+                                {
+                                    devWorkInfo.map((item, index) => (
+                                        <Box key={index} component="div" sx={{width: 1, mb: 1}}>
+                                            <Tooltip title={item.tooltipTitle} placement="right" arrow>
+                                                <Chip icon={item.icon} label={
+                                                    <Typography variant="body1" color="whitesmoke">
+                                                        <CountUp start={0} end={item.total} duration={2}/>
+                                                    </Typography>
+                                                } sx={{p: 2, backgroundColor: item.color, width: 1}}/>
+                                            </Tooltip>
+                                        </Box>
+                                    ))
+                                }
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid xs={0} sm={0} md={4} lg={4} xl={4}>
                         <Avatar src={avatar} variant="rounded" sx={{
@@ -136,7 +164,7 @@ const About = () => {
                             }
                         }}>
                             <Chip icon={<SelfImprovementRounded/>} label={
-                                <Typography variant="body1" color={teal[800]} sx={{textAlign: "center"}}>
+                                <Typography variant="body1" color={teal[600]} sx={{textAlign: "center"}}>
                                     مهارت های من
                                 </Typography>
                             } sx={{p: 3}}/>
