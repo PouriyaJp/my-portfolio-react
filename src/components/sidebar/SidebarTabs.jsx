@@ -2,7 +2,7 @@ import {useContext} from "react";
 import MainContext from "../../context";
 import {Tab, Tabs} from "@mui/material";
 import {blue} from "@mui/material/colors";
-import {tabsData} from "../data/tabsData.sidebar";
+import {tabsData} from "../../constants/tabsData";
 
 const SidebarTabs = () => {
     const {pageNumber, handlePageNumber, setDrawerOpen} = useContext(MainContext);

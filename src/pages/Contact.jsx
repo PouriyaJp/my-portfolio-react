@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import {useFormik} from "formik";
+import ReCAPTCHA from "react-google-recaptcha";
 import {useTheme} from "@mui/material/styles";
 import {
     Typography,
@@ -17,7 +18,7 @@ import {AccountCircle, Face6Rounded, SubjectRounded, EmailRounded, SettingsEther
 import {Helmet} from "react-helmet-async";
 import {grey, teal} from "@mui/material/colors";
 import worldMap from "../assets/map.svg";
-import {contactValidationSchema} from "./validations/contactValidation";
+import {contactValidationSchema} from "../validations/contactValidation";
 
 const Contact = ({helmetTitle}) => {
     const [loading, setLoading] = useState(false);
@@ -35,7 +36,8 @@ const Contact = ({helmetTitle}) => {
         fullName: "",
         email: "",
         subject: "",
-        message: ""
+        message: "",
+        recaptcha: ""
     }
 
     const formik = useFormik({
@@ -185,6 +187,17 @@ const Contact = ({helmetTitle}) => {
                                         </Grid>
                                     </CardContent>
                                     <CardActions sx={{alignItems: "flex-start", flexDirection: "column"}}>
+                                        <ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} theme={theme.palette.mode} hl="fa" onChange={(value) => {
+                                            formik.setFieldValue("recaptcha", value)
+                                        }}/>
+                                        {
+                                            formik.errors.recaptcha && formik.touched.recaptcha &&
+                                            (
+                                                <Typography variant="caption" color="error">
+                                                    {formik.errors.recaptcha}
+                                                </Typography>
+                                            )
+                                        }
                                         <Button type="submit" color="success" variant="contained" sx={{mt: 2}}>
                                             ارسال کن
                                         </Button>
