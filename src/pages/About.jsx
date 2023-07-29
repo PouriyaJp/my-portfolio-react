@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import {Typography, Card, CardContent, Divider, Avatar, Chip, Box, Tooltip} from "@mui/material";
 import Grid from '@mui/material/Grid';
-import {teal} from "@mui/material/colors";
+import {grey, teal} from "@mui/material/colors";
 import avatar from "../assets/avatar.jpg";
 import {CodeRounded, SelfImprovementRounded} from "@mui/icons-material";
 import DevInfo from "./components/DevInfo";
@@ -10,8 +10,10 @@ import {devSkills} from "../constants/skills";
 import {devWorkInfo} from "../constants/details";
 import CountUp from "react-countup";
 import {Helmet} from "react-helmet-async";
+import {useTheme} from "@mui/material/styles";
 
 const About = ({helmetTitle}) => {
+    const theme = useTheme();
     const {
         htmlSkill,
         cssSkill,
@@ -88,7 +90,8 @@ const About = ({helmetTitle}) => {
     return (
         <Card sx={{
             height: "100vh",
-            overflowY: "auto"
+            overflowY: "auto",
+            backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
         }}>
             <Helmet>
                 <title>{helmetTitle}</title>

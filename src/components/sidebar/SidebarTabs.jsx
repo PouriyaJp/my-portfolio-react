@@ -18,12 +18,7 @@ const SidebarTabs = () => {
             onChange={handlePageNumber}
         >
             {data.map((tab, index) => (
-                <Tab
-                    key={index}
-                    label={tab.label}
-                    icon={tab.icon}
-                    iconPosition="start"
-                    sx={{
+                <Tab key={index} label={tab.label} icon={tab.icon} iconPosition="start" sx={{
                         color: blue[50], "&.MuiTab-root": {
                             minHeight: 50,
                             backgroundColor: "rgb(14,14,14)",

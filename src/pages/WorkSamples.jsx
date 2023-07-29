@@ -16,9 +16,11 @@ import {
 import Grid from "@mui/material/Unstable_Grid2";
 import {SchoolRounded} from "@mui/icons-material";
 import {workSamples} from "../constants/workSamples";
-import {lime, teal} from "@mui/material/colors";
+import {grey, lime, teal} from "@mui/material/colors";
+import {useTheme} from "@mui/material/styles";
 
 const WorkSamples = ({helmetTitle}) => {
+    const theme = useTheme();
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -34,6 +36,7 @@ const WorkSamples = ({helmetTitle}) => {
             sx={{
                 height: "100vh",
                 overflowY: "scroll",
+                backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
             }}
         >
             <Helmet>

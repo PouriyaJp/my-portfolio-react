@@ -4,10 +4,12 @@ import {Typography, Card, CardContent, Divider, Chip, Slide} from "@mui/material
 import {Timeline, TimelineItem, TimelineSeparator, TimelineDot, TimelineContent, TimelineConnector} from "@mui/lab";
 import {devEdu, devExp} from "../constants/details";
 import {SettingsEthernetRounded, HomeRepairServiceRounded, SchoolRounded} from "@mui/icons-material";
-import {deepPurple, teal, yellow} from "@mui/material/colors";
+import {deepPurple, grey, teal, yellow} from "@mui/material/colors";
 import Grid from "@mui/material/Unstable_Grid2";
+import {useTheme} from "@mui/material/styles";
 
 const Resume = ({helmetTitle}) => {
+    const theme = useTheme();
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -21,8 +23,8 @@ const Resume = ({helmetTitle}) => {
     return (
         <Card sx={{
             height: "100vh",
-            overflowY: "auto"
-            // backgroundColor: "whitesmoke"
+            overflowY: "auto",
+            backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
         }}>
             <Helmet>
                 <title>{helmetTitle}</title>

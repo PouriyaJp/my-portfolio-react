@@ -3,20 +3,26 @@ import MainLayout from "./layouts/MainLayout";
 import {Sidebar} from "./components/sidebar";
 import PagesContainer from "./containers/PagesContainer";
 import Page from "./pages/components/Page";
-import {Typography, useMediaQuery} from "@mui/material";
+import {useMediaQuery} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
 import SidebarContainer from "./containers/SidebarContainer";
 import MainContext from "./context";
 import {DrawerActionButton} from "./components/drawer";
-import {Home, About, Resume, WorkSamples} from "./pages";
+import {Home, About, Resume, WorkSamples, Comments, Contact} from "./pages";
 
 
 function App() {
     const [pageNumber, setPageNumber] = useState(0);
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [mode, setMode] = useState();
 
     const theme = useTheme();
     const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+    useEffect(() => {
+        setMode(prefersDarkMode ? "dark" : "light");
+    }, []);
 
     useEffect(() => {
         if (isMdUp) {
@@ -28,14 +34,19 @@ function App() {
         setPageNumber(newValue);
     };
 
+    const handleThemeChange = () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    }
+
     return (
         <MainContext.Provider value={{
             pageNumber,
             handlePageNumber,
             drawerOpen,
-            setDrawerOpen
+            setDrawerOpen,
+            handleThemeChange
         }}>
-            <MainLayout>
+            <MainLayout mode={mode}>
                 <SidebarContainer>
                     <Sidebar/>
                 </SidebarContainer>
@@ -54,14 +65,10 @@ function App() {
                         <WorkSamples helmetTitle="نمونه کارها"/>
                     </Page>
                     <Page value={pageNumber} index={4}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            نظرات
-                        </Typography>
+                        <Comments helmetTitle="نظرات کاربران"/>
                     </Page>
                     <Page value={pageNumber} index={5}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            ارتباط با من
-                        </Typography>
+                        <Contact helmetTitle="ارتباط با من"/>
                     </Page>
                 </PagesContainer>
             </MainLayout>

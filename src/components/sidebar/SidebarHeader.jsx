@@ -5,12 +5,14 @@ import {RandomReveal} from "react-random-reveal";
 import {alphabetPersian} from "../../constants/alphabetPersian";
 import {GitHub, Telegram, Instagram, LinkedIn} from "@mui/icons-material";
 import {blue, pink} from "@mui/material/colors";
+import ThemeActionButton from "../ThemeActionButton";
 
 const SidebarHeader = () => {
     const [start, setStart] = useState(false);
 
     return (
         <>
+            <ThemeActionButton/>
             <Avatar
                 src={avatar}
                 variant="rounded"
