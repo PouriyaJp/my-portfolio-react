@@ -1,9 +1,7 @@
 import {Chip, Divider, Slide, Typography} from "@mui/material";
-import {teal} from "@mui/material/colors";
-import {ForumRounded} from "@mui/icons-material";
 import {useEffect, useState} from "react";
 
-const CustomDivider = ({bColor, icon, align, text}) => {
+const CustomDivider = ({bColor, cColor, tColor, icon, align, text}) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -24,8 +22,8 @@ const CustomDivider = ({bColor, icon, align, text}) => {
                 },
                 mb: 3,
             }}>
-                <Chip icon={icon} label={
-                    <Typography variant="body1" color={teal[600]} sx={{textAlign: "center"}}>
+                <Chip icon={icon} color={cColor} label={
+                    <Typography variant="body1" color={tColor} sx={{textAlign: "center"}}>
                         {text}
                     </Typography>
                 }

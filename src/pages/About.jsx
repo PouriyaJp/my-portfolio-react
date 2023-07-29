@@ -24,14 +24,11 @@ const About = ({helmetTitle}) => {
             <CardContent>
                 <Grid container sx={{mx: 3}}>
                     <Grid xs={12} sm={12} md={8} lg={8} xl={8}>
-                        <CustomDivider icon={<CodeRounded/>} align="right" bColor={teal[800]} text="برنامه نویس و توسعه دهنده فول استک"/>
+                        <CustomDivider icon={<CodeRounded/>} align="right" bColor={teal[800]} tColor={teal[600]} text="برنامه نویس و توسعه دهنده فول استک"/>
 
                         <Grid container>
                             <Grid item xs={12} sm={8} md={9} lg={9} xl={9}>
-                                <DevInfo>نام و نام خانوادگی : پوریا جمشیدپور</DevInfo>
-                                <DevInfo>سن : ۲۹</DevInfo>
-                                <DevInfo>شهر : تهران</DevInfo>
-                                <DevInfo>آدرس ایمیل : pouriya2910@gmail.com</DevInfo>
+                                <DevInfo/>
                             </Grid>
                             <Grid item xs={0} sm={4} md={3} lg={3} xl={3} sx={{
                                 display: {
@@ -51,7 +48,7 @@ const About = ({helmetTitle}) => {
                 </Grid>
                 <Grid container>
                     <Grid sx={{width: 1, mt: 1}}>
-                        <CustomDivider icon={<SelfImprovementRounded/>} align="center" bColor={teal[800]} text="مهارت های من"/>
+                        <CustomDivider icon={<SelfImprovementRounded/>} align="center" bColor={teal[800]} tColor={teal[600]} text="مهارت های من"/>
                         <Skills/>
                     </Grid>
                 </Grid>
