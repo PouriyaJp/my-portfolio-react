@@ -1,7 +1,7 @@
 import {Helmet} from "react-helmet-async";
 import {Card, CardContent} from "@mui/material";
 import {ForumRounded} from "@mui/icons-material";
-import {grey, teal} from "@mui/material/colors";
+import {brown, teal} from "@mui/material/colors";
 import {useTheme} from "@mui/material/styles";
 import {CustomDivider} from "../components/common";
 import {CommentsSlider} from "../components/pages";
@@ -15,7 +15,7 @@ const Comments = ({helmetTitle}) => {
             overflowY: "scroll",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
+            backgroundColor: theme.palette.mode === "light" ? brown[50] : null,
         }}>
             <Helmet>
                 <title>{helmetTitle}</title>

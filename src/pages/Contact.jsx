@@ -4,7 +4,7 @@ import {Typography, Card, CardContent, Slide} from "@mui/material";
 import Grid from '@mui/material/Grid';
 import {AccountCircle} from "@mui/icons-material";
 import {Helmet} from "react-helmet-async";
-import {grey, teal} from "@mui/material/colors";
+import {brown, teal} from "@mui/material/colors";
 import worldMap from "../assets/map.svg";
 import {CustomDivider} from "../components/common";
 import {ContactForm} from "../components/pages";
@@ -27,7 +27,7 @@ const Contact = ({helmetTitle}) => {
             overflowY: "scroll",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
+            backgroundColor: theme.palette.mode === "light" ? brown[50] : null,
         }}>
             <Helmet>
                 <title>{helmetTitle}</title>
@@ -40,7 +40,7 @@ const Contact = ({helmetTitle}) => {
                         transitionDelay: loading ? "200ms" : "0ms",
                     }}>
                         <Grid xs={12} sm={12} md={8}>
-                            <Card sx={{justifyContent: "center", alignItems: "center"}}>
+                            <Card sx={{justifyContent: "center", alignItems: "center", backgroundColor: theme.palette.mode === "light" ? brown[50] : null}}>
                                 <ContactForm theme={theme}/>
                             </Card>
                         </Grid>
@@ -55,7 +55,7 @@ const Contact = ({helmetTitle}) => {
                             backgroundPosition: "center",
                             height: "700px"
                         }}>
-                            <Card sx={{justifyContent: "center", alignItems: "center"}}>
+                            <Card sx={{justifyContent: "center", alignItems: "center", backgroundColor: theme.palette.mode === "light" ? brown[50] : null}}>
                                 <Typography variant="h6" color={teal[600]} sx={{
                                     fontFamily: "vazir",
                                     mt: 4,

@@ -1,8 +1,10 @@
 import Slider from "react-slick";
 import {userComments} from "../../constants/details";
 import {Avatar, Box, Card, CardContent, Typography} from "@mui/material";
+import {useTheme} from "@mui/material/styles";
 
 const CommentsSlider = () => {
+    const theme = useTheme();
     const options = {
         dots: true,
         arrows: false,
@@ -22,10 +24,10 @@ const CommentsSlider = () => {
                         <Box key={index} component="div" sx={{justifyContent: " center"}}>
                             <Avatar src={user.avatar} variant="rounded"
                                     sx={{height: 100, width: 100, margin: "0 auto"}}/>
-                            <Typography variant="body1" textAlign="center" color="whitesmoke">
+                            <Typography variant="body1" textAlign="center" color={theme.palette.mode === "light" ? "black" : "whitesmoke"}>
                                 {user.fullName}
                             </Typography>
-                            <Typography variant="body2" textAlign="center" color="whitesmoke" sx={{mb: 2}}>
+                            <Typography variant="body2" textAlign="center" color={theme.palette.mode === "light" ? "black" : "whitesmoke"} sx={{mb: 2}}>
                                 {user.jobTitle}
                             </Typography>
                             <Card sx={{

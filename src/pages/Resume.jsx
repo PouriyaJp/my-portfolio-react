@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import {Helmet} from "react-helmet-async";
 import {Card, CardContent} from "@mui/material";
 import {SettingsEthernetRounded, HomeRepairServiceRounded, SchoolRounded} from "@mui/icons-material";
-import {grey, teal} from "@mui/material/colors";
+import {brown, teal} from "@mui/material/colors";
 import Grid from "@mui/material/Unstable_Grid2";
 import {useTheme} from "@mui/material/styles";
 import {CustomDivider} from "../components/common";
@@ -24,7 +24,7 @@ const Resume = ({helmetTitle}) => {
         <Card sx={{
             height: "100vh",
             overflowY: "auto",
-            backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
+            backgroundColor: theme.palette.mode === "light" ? brown[50] : null,
         }}>
             <Helmet>
                 <title>{helmetTitle}</title>

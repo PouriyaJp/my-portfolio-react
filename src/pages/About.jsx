@@ -1,6 +1,6 @@
 import {Card, CardContent} from "@mui/material";
 import Grid from '@mui/material/Grid';
-import {grey, teal} from "@mui/material/colors";
+import {brown, teal} from "@mui/material/colors";
 import avatar from "../assets/avatar.jpg";
 import {CodeRounded, SelfImprovementRounded} from "@mui/icons-material";
 import {DevInfo, DevWorkCount, Skills} from "../components/pages";
@@ -16,7 +16,7 @@ const About = ({helmetTitle}) => {
         <Card sx={{
             height: "100vh",
             overflowY: "auto",
-            backgroundColor: theme.palette.mode === "light" ? grey["A400"] : null,
+            backgroundColor: theme.palette.mode === "light" ? brown[50] : null,
         }}>
             <Helmet>
                 <title>{helmetTitle}</title>
